@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    Termux调教 |
+    
+    Hexo
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-1" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  Termux调教
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/posts/1/" class="article-date">
+  <time datetime="2022-02-11T03:41:39.000Z" itemprop="datePublished">2022-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>Termux是一个很强大的软件，我们经常会使用到，为了让Termux更加好看和顺手一点，我们需要来调教一下……</p>
+<span id="more"></span>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>输入如下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg update</span><br></pre></td></tr></table></figure>
+<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><p>论哪个编辑器好用，那当然是Vim了！当然，为了我们在后来方便编辑文本，也需要一个顺手的工具。<br>先安装一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install vim</span><br></pre></td></tr></table></figure>
+<p>常用方法：<br>进入编辑模式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i</span><br></pre></td></tr></table></figure>
+<p>保存并退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
+<p>不保存退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:q!</span><br></pre></td></tr></table></figure>
+<h3 id="更换配色"><a href="#更换配色" class="headerlink" title="更换配色"></a>更换配色</h3><p>为了让我们的Termux更好看一点，当然要改一下样式了<br>我们所使用的是zsh这个插件，先安装一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<p>随机会弹出请求储存权限，选择<strong>始终允许</strong><br>如果不小心选错了的话就输入如下指令重新申请访问储存权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure>
+
+<p>等待一会会有如下两个选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter a number, leave blank to not to change:</span><br><span class="line">Enter a number, leave blank to not to change:</span><br></pre></td></tr></table></figure>
+<p>第一个是选择<strong>色彩样式</strong>，第二个是选择<strong>字体样式</strong>，这个随个人喜好，我选择的是14和6</p>
+<p>当然，如果你对你选的样式不满意的话是可以更换的</p>
+<p>设置色彩样式：<br>输入<strong>chcolor</strong>命令更换色彩样式，或者输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.termux/colors.sh</span><br></pre></td></tr></table></figure>
+<p>设置字体<br>运行<strong>chfont</strong>命令更换字体，或者输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.termux/fonts.sh命令</span><br></pre></td></tr></table></figure>
+
+<h3 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h3><p>好看的主题谁不爱呢？ZSH还支持主题哦</p>
+<p>首先输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .zshrc</span><br></pre></td></tr></table></figure>
+<p>在<strong>第一行</strong>就是主题设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THENE=&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
+<p>可以看到ZSH默认的主题是<strong>agnoster</strong>，把<strong>agnoster</strong>替换为自己喜欢的主题的名字就可以了，也可以向我一样直接留空。主题可以在<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">官网</a>查看，有图片可以查看，这样就不必一个个试了</p>
+<h3 id="自动提示"><a href="#自动提示" class="headerlink" title="自动提示"></a>自动提示</h3><p>ZSH除了好看的主题外，还有许多的插件，其中<strong>autosuggestions</strong>可以自动提示我们常用的指令，十分实用<br>先安装一下，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<p>之后输入如下指令配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>找到下面这一行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git)</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
+<p>退出后输入如下指令开启</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh</span><br></pre></td></tr></table></figure>
+<h3 id="创建目录软链接"><a href="#创建目录软链接" class="headerlink" title="创建目录软链接"></a>创建目录软链接</h3><p>先在文件管理里新建一个名为Termux的软件<br>随即输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /data/data/com.termux/files/home/storage/shared/Termux Termux</span><br></pre></td></tr></table></figure>
+<p>之后我们可以直接在Termux输入如下指令就可以访问Termux这个文件夹了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd Termux</span><br></pre></td></tr></table></figure>
+<h3 id="自定义快捷按键"><a href="#自定义快捷按键" class="headerlink" title="自定义快捷按键"></a>自定义快捷按键</h3><p>Termux自带16个快捷按键，但其中有些并不是我们需要的，因此我们需要更改一下按键<br>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.termux/termux.properties</span><br></pre></td></tr></table></figure>
+<p>长按后选<strong>paste</strong>粘贴如下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extra-keys = [ \</span><br><span class="line">[&#x27;ESC&#x27;,&#x27;|&#x27;,&#x27;/&#x27;,&#x27;HOME&#x27;,&#x27;UP&#x27;,&#x27;END&#x27;,&#x27;PGUP&#x27;,&#x27;BKSP&#x27;],</span><br><span class="line">\</span><br><span class="line">[&#x27;TAB&#x27;,&#x27;CTRL&#x27;,&#x27;ALT&#x27;,&#x27;LEFT&#x27;,&#x27;DOWN&#x27;,&#x27;RIGHT&#x27;,&#x27;PGDN&#x27;,&#x27;ENTER&#x27;]</span><br><span class="line">\</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>完整按键表</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CTRL</td>
+<td align="center">特殊按键</td>
+</tr>
+<tr>
+<td align="center">ALT</td>
+<td align="center">特殊按键</td>
+</tr>
+<tr>
+<td align="center">FN</td>
+<td align="center">特殊按键</td>
+</tr>
+<tr>
+<td align="center">ESC</td>
+<td align="center">退出键</td>
+</tr>
+<tr>
+<td align="center">TAB</td>
+<td align="center">表格键</td>
+</tr>
+<tr>
+<td align="center">HOME</td>
+<td align="center">原位键</td>
+</tr>
+<tr>
+<td align="center">END</td>
+<td align="center">结尾键</td>
+</tr>
+<tr>
+<td align="center">PGUP</td>
+<td align="center">上翻页键</td>
+</tr>
+<tr>
+<td align="center">PGDN</td>
+<td align="center">下翻页键</td>
+</tr>
+<tr>
+<td align="center">INS</td>
+<td align="center">插入键</td>
+</tr>
+<tr>
+<td align="center">DEL</td>
+<td align="center">删除键</td>
+</tr>
+<tr>
+<td align="center">BKSP</td>
+<td align="center">退格键</td>
+</tr>
+<tr>
+<td align="center">UP</td>
+<td align="center">方向键 上</td>
+</tr>
+<tr>
+<td align="center">LEFT</td>
+<td align="center">方向键 左</td>
+</tr>
+<tr>
+<td align="center">RIGHT</td>
+<td align="center">方向键 右</td>
+</tr>
+<tr>
+<td align="center">DOWN</td>
+<td align="center">方向键 下</td>
+</tr>
+<tr>
+<td align="center">ENTER</td>
+<td align="center">回车键</td>
+</tr>
+<tr>
+<td align="center">BACkSLASH</td>
+<td align="center">反斜杠\</td>
+</tr>
+<tr>
+<td align="center">QUOTE</td>
+<td align="center">双引号键</td>
+</tr>
+<tr>
+<td align="center">APOSTROPHE</td>
+<td align="center">单引号键</td>
+</tr>
+<tr>
+<td align="center">F1-F12</td>
+<td align="center">F1-F12按键</td>
+</tr>
+</tbody></table>
+<h3 id="修改启动问候语"><a href="#修改启动问候语" class="headerlink" title="修改启动问候语"></a>修改启动问候语</h3><p>每次启动我们都会看到启动问候语，所以我要把他改好看一点才行<br>输入如下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim $PREFIX/etc/motd</span><br></pre></td></tr></table></figure>
+<p>打开的文档就是Termux的启动问候语了，可以随便修改哦</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>好了，Termux的调教大概好了，如果有其他需要，那就多用Google找找吧！也可以翻阅<a target="_blank" rel="noopener" href="https://github.com/termux/termux-app">在这</a>的文档哦！</p>
+<h3 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h3><p>当初我是从国光大佬的教程中学习Termux的，国光大佬的教程比我的更加完善，不过有些失效了，在写这篇文章的时候也引用了许多国光大佬的教程，大家也可以去看看国光大佬的文章<br><a target="_blank" rel="noopener" href="https://www.sqlsec.com/2018/05/termux.html">地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/posts/1/" data-id="ckzhw0ziz0000z7s65jgp6pj2" class="article-share-link">
+        Share
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/posts/2/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      Hello World
+      
+    </div>
+  </a>
+  
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Hexo &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
